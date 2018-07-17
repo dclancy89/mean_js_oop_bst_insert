@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <script>
+        function BST() {
+            this.root = null;
+        }
+
+        function Node(val) {
+            this.value = val;
+            this.left = null;
+            this.right = null;
+
+        }
+
+        BST.prototype.insert = function(val) {
+            var current;
+            if(this.root === null) {
+                this.root = new Node(val);
+            } else {
+                current = this.root;
+
+                while(true) {
+                    if(val < current.value) {
+                        if(current.left === null) {
+                            current.left = new Node(val);
+                            break;
+                        } else {
+                            current = current.left;
+                        }
+                    } else if (val > current.value) {
+                        if(current.right === null) {
+                            current.right = new Node(val);
+                            break;
+                        } else {
+                            current = current.right;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        let first = new BST();
+
+        first.insert(30);
+        first.insert(20);
+        first.insert(50);
+        first.insert(19);
+        first.insert(85);
+        first.insert(45);
+        console.log(first);
+
+    </script>
+    
+</body>
+</html>
